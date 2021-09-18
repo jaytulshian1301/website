@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 import React from 'react';
 import Nav from './components/nav/nav'
@@ -12,7 +12,7 @@ class App extends React.Component {
       <Nav />
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+
           <p>
             Edit <code>src/App.js</code>
           </p>

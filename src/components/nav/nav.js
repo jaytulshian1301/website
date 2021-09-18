@@ -9,7 +9,7 @@ export default function Nav() {
           </button>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav">
-              <a className="nav-link m-auto" id="active-link" href="dashboard.html">Dashboard</a>
+              <a className="nav-link m-auto" id="active-link" href="../other">Dashboard</a>
               <a className="nav-link m-auto" href="#">Conversations</a>
               <a className="nav-link m-auto" href="#">Users</a>
               <a className="nav-link m-auto">Engagement</a>
