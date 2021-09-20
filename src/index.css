@@ -1,46 +1,66 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background-color: rgba(200,200,200,0.1)!important;
+  background-color: rgba(200, 200, 200, 0.1) !important;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
-light{
+light {
   font-weight: 400;
 }
 
 transparent {
-  color: rgb(128,128,128);
+  color: rgb(128, 128, 128);
 }
 
-.graph-details{
+.graph-details {
   height: 50%;
   width: 100%;
-  background-color: rgba(0,0,0,0)!important;
-  border: none!important;
+  background-color: rgba(0, 0, 0, 0) !important;
+  cursor: pointer;
+  border: none !important;
 }
 
-.height-60{
-  height: fit-content!important;
+.height-60 {
+  height: fit-content !important;
 }
 
 .graph-holder {
   height: fit-content;
 }
 
-.border{
+.border {
   border: 1px solid grey;
   border-radius: 4px;
   background-color: white;
+}
+
+input, form button {
+  padding: 5px 10px;
+  border: 1px solid grey;
+  background-color: white;
+  border-radius: 20px;
+  border-top-right-radius: 20px!important;
+  border-bottom-right-radius: 20px!important;
+}
+
+.cursor-pointer{
+  cursor: pointer;
+}
+
+.go-back{
+  background-color: transparent;
+  border: 2px solid grey;
+  border-radius: 5px;
 }

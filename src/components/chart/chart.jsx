@@ -14,8 +14,6 @@ const Chart = ({ datapoints }) => {
     total = total + datapoints[i].keyValues;
   }
 
-  console.log(datapoints[datapoints.length - 1].keyValues);
-
   const data = {
     labels: labels,
     datasets: [
@@ -67,7 +65,7 @@ const Chart = ({ datapoints }) => {
     },
   };
 
-  return <Line className="height-60" data={data} options={options} />;
+  return <Line className="cursor-pointer" data={data} options={options} />;
 };
 
 export default Chart;

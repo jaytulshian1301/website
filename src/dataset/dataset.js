@@ -1,6 +1,6 @@
 module.exports.dataset = [
     {
-        date: "2021-09-1",
+        date: "2021-09-01",
         livecount: 1929,
         sentMessages: 10432,
         receivedMessages: 53512,
@@ -13,7 +13,7 @@ module.exports.dataset = [
         returningUsers: 2341
     },
     {
-        date: "2021-09-2",
+        date: "2021-09-02",
         livecount: 5223,
         sentMessages: 23410,
         receivedMessages: 45151,
@@ -26,7 +26,7 @@ module.exports.dataset = [
         returningUsers: 3314
     },
     {
-        date: "2021-09-3",
+        date: "2021-09-03",
         livecount: 5135,
         sentMessages: 71582,
         receivedMessages: 37171,
@@ -39,7 +39,7 @@ module.exports.dataset = [
         returningUsers: 7105
     },
     {
-        date: "2021-09-4",
+        date: "2021-09-04",
         livecount: 7592,
         sentMessages: 10113,
         receivedMessages: 38382,
@@ -52,7 +52,7 @@ module.exports.dataset = [
         returningUsers: 1342
     },
     {
-        date: "2021-09-5",
+        date: "2021-09-05",
         livecount: 7182,
         sentMessages: 71502,
         receivedMessages: 24871,
@@ -65,7 +65,7 @@ module.exports.dataset = [
         returningUsers: 523
     },
     {
-        date: "2021-09-6",
+        date: "2021-09-06",
         livecount: 3773,
         sentMessages: 77347,
         receivedMessages: 52445,
@@ -78,7 +78,7 @@ module.exports.dataset = [
         returningUsers: 2543
     },
     {
-        date: "2021-09-7",
+        date: "2021-09-07",
         livecount: 5222,
         sentMessages: 15351,
         receivedMessages: 3511,
@@ -91,7 +91,7 @@ module.exports.dataset = [
         returningUsers: 340
     },
     {
-        date: "2021-09-8",
+        date: "2021-09-08",
         livecount: 6533,
         sentMessages: 60453,
         receivedMessages: 3736,
@@ -104,7 +104,7 @@ module.exports.dataset = [
         returningUsers: 53
     },
     {
-        date: "2021-09-9",
+        date: "2021-09-09",
         livecount: 7154,
         sentMessages: 81947,
         receivedMessages: 9158,

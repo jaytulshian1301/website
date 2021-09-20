@@ -21,7 +21,10 @@ const validate = (values, startdate, enddate) => {
     let date3 = new Date(values.enddate)
     let date4 = new Date(enddate)
 
-    console.log(date1, date2, date3, date4)
+    if(date3<date1){
+        errors.enddate = "End Date cannot be lesser than start date";
+        errors.startdate = "Start Date cannot be greater than end date";
+    }
 
     if(!values.startdate) {
         errors.startdate = "Start Date cannot be null"
@@ -41,14 +44,15 @@ const validate = (values, startdate, enddate) => {
 
 const TextError = (props) => <div className="error-msg">{props.children}</div>
 
-const Filter = ({ startdate, enddate }) => {
+const Filter = ({ startdate, enddate, applyStartFilter, applyEndFilter }) => {
 
     const validator = (values) => {
         validate(values, startdate, enddate)
     }
 
     const onSubmit = (values) => {
-        console.log(values)
+        applyStartFilter(values.startdate)
+        applyEndFilter(values.enddate)
     }
 
     return (
@@ -61,7 +65,10 @@ const Filter = ({ startdate, enddate }) => {
           {(formik) => {
             return (
               <Form className="d-flex flex-wrap coupon">
-                <div className="col-9 mb-3">
+                <div className="col-2 p-3">
+                  <h3>Filter</h3>
+                </div>
+                <div className="col-4 p-3">
                   <div className="input-group">
                     <Field
                       className="col-12"
@@ -82,7 +89,7 @@ const Filter = ({ startdate, enddate }) => {
                     </div>
                   </div>
                 </div>
-                <div className="col-9 mb-3">
+                <div className="col-4 p-3">
                   <div className="input-group">
                     <Field
                       className="col-12"
@@ -104,7 +111,7 @@ const Filter = ({ startdate, enddate }) => {
                     </div>
                   </div>
                 </div>
-                <div className="col-3 mb-2">
+                <div className="col-2 mb-2 p-3">
                   <button type="submit" onClick={onSubmit}>
                     Apply Filter
                   </button>

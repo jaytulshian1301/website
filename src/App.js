@@ -1,7 +1,7 @@
 import "./App.css";
-import React from "react";
+import React, { useState } from "react";
 import Nav from "./components/nav/nav";
-import reactDom from "react-dom";
+import SingleChart from "./components/singleChart/singleChart";
 import Chart from "./components/chart/chart";
 import { dataset } from "./dataset/dataset";
 import Filter from "./components/filter/filter";
@@ -9,9 +9,9 @@ import Filter from "./components/filter/filter";
 const App = () => {
   const data = dataset;
 
-  const startdate = data[0].date
+  const startdate = data[0].date;
 
-  const enddate = data[data.length-1].date
+  const enddate = data[data.length - 1].date;
 
   let count = 0;
 
@@ -19,12 +19,56 @@ const App = () => {
 
   let arrayKeys = Object.keys(data[0]);
 
+  const [multiView, setMultiView] = useState({ view: true });
+
+  const toggleView = (datapoint, index) => {
+    setMultiView({ view: !multiView.view, datapoint: datapoint, index: index });
+  };
+
+  const [StartFilter, setStartFilter] = useState(startdate);
+
+  const [EndFilter, setEndFilter] = useState(enddate);
+
+  const applyStartFilter = (date) => {
+    setStartFilter(date);
+  };
+
+  const applyEndFilter = (date) => {
+    setEndFilter(date);
+  };
+
+  let StartIndex = 0;
+  let EndIndex = data.length - 1;
+  let filteredData = [];
+
+  data.map((datapoint, index) => {
+    if (
+      new Date(datapoint.date).getTime() === new Date(StartFilter).getTime()
+    ) {
+      StartIndex = index;
+      return;
+    }
+  });
+
+  data.map((datapoint, index) => {
+    if (new Date(datapoint.date).getTime() === new Date(EndFilter).getTime()) {
+      EndIndex = index;
+      return;
+    }
+  })
+
+  for (let i = StartIndex; i < EndIndex + 1; i++) {
+    filteredData.push(data[i]);
+  }
+
   for (let i = 0; i < arrayKeys.length; i++) {
-    // console.log(i)
     chartsData.push([]);
-    let keyValues = Object.keys(data[0])[i];
-    for (let j = 0; j < data.length; j++) {
-      chartsData[i].push({ date: data[j].date, keyValues: data[j][keyValues] });
+    let keyValues = Object.keys(filteredData[0])[i];
+    for (let j = 0; j < filteredData.length; j++) {
+      chartsData[i].push({
+        date: filteredData[j].date,
+        keyValues: filteredData[j][keyValues],
+      });
     }
   }
 
@@ -47,10 +91,13 @@ const App = () => {
 
   const chartsMap = chartsData.map((datapoint, index) => {
     count = count + 1;
-
+    const sendData = () => {
+      toggleView(datapoint, index);
+    };
     return (
       <div
         className="col-lg-3 col-md-4 col-sm-6 col-xs-12 p-2 graph-holder position-relative"
+        onClick={sendData}
         key={count}
       >
         <div className="no-border card">
@@ -60,11 +107,13 @@ const App = () => {
                 <transparent>TOTAL {heading[index]}</transparent>
               </h6>
             </div>
-              <h2 className="text-uppercase">
-                <light>
-                  {datapoint[datapoint.length - 1].keyValues / 1000}K
-                </light>
-              </h2>
+            <h2 className="text-uppercase">
+              <light>
+                {datapoint[datapoint.length - 1].keyValues > 1000
+                  ? datapoint[datapoint.length - 1].keyValues / 1000 + "K"
+                  : datapoint[datapoint.length - 1].keyValues}{" "}
+              </light>
+            </h2>
           </div>
           <Chart datapoints={datapoint} />
         </div>
@@ -75,9 +124,26 @@ const App = () => {
   return (
     <React.Fragment>
       <Nav />
-      <Filter startdate={startdate} enddate={enddate}/>
+      <Filter
+        startdate={startdate}
+        enddate={enddate}
+        applyStartFilter={applyStartFilter}
+        applyEndFilter={applyEndFilter}
+      />
       <div className="container-fluid pt-4 pb-4 p-5">
-        <div className="row">{chartsMap}</div>
+        <div className="row">
+          {multiView.view ? (
+            chartsMap
+          ) : (
+            <SingleChart
+              StartIndex={StartIndex}
+              EndIndex={EndIndex}
+              datapoint={multiView.datapoint}
+              heading={heading[multiView.index]}
+              goBack={toggleView}
+            />
+          )}
+        </div>
       </div>
     </React.Fragment>
   );
