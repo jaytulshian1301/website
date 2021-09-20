@@ -14,7 +14,7 @@ export default function Nav() {
               <a className="nav-link m-auto" href="#">Users</a>
               <a className="nav-link m-auto">Engagement</a>
               <a className="nav-link m-auto">Integrations</a>
-              <a className="nav-link m-lg-auto">Integrations</a>
+              <a className="nav-link m-lg-auto twitter" target="_blank" href="https://twitter.com">Twitter</a>
   
             </div>
           </div>

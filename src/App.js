@@ -104,15 +104,15 @@ const App = () => {
           <div className="graph-details card p-4">
             <div className="card-title mb-0">
               <h6 className="text-uppercase mb-0">
-                <transparent>TOTAL {heading[index]}</transparent>
+                <div className="transparent">TOTAL {heading[index]}</div>
               </h6>
             </div>
             <h2 className="text-uppercase">
-              <light>
+              <div className="light">
                 {datapoint[datapoint.length - 1].keyValues > 1000
                   ? datapoint[datapoint.length - 1].keyValues / 1000 + "K"
                   : datapoint[datapoint.length - 1].keyValues}{" "}
-              </light>
+              </div>
             </h2>
           </div>
           <Chart datapoints={datapoint} />

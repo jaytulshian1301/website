@@ -56,7 +56,7 @@ const Filter = ({ startdate, enddate, applyStartFilter, applyEndFilter }) => {
     }
 
     return (
-      <div class="jumbotron m-5 mt-4 mb-0 p-3 border">
+      <div className="jumbotron m-5 mt-4 mb-0 p-3 border">
         <Formik
           initialValues={initialValues}
           validate={validator}
@@ -65,10 +65,10 @@ const Filter = ({ startdate, enddate, applyStartFilter, applyEndFilter }) => {
           {(formik) => {
             return (
               <Form className="d-flex flex-wrap coupon">
-                <div className="col-2 p-3">
+                <div className="col-lg-1 col-md-6 p-3">
                   <h3>Filter</h3>
                 </div>
-                <div className="col-4 p-3">
+                <div className="col-lg-4 col-md-6 p-3">
                   <div className="input-group">
                     <Field
                       className="col-12"
@@ -89,7 +89,8 @@ const Filter = ({ startdate, enddate, applyStartFilter, applyEndFilter }) => {
                     </div>
                   </div>
                 </div>
-                <div className="col-4 p-3">
+                <div className="col-1 p-3">to</div>
+                <div className="col-lg-4 col-md-6 p-3">
                   <div className="input-group">
                     <Field
                       className="col-12"
@@ -111,7 +112,7 @@ const Filter = ({ startdate, enddate, applyStartFilter, applyEndFilter }) => {
                     </div>
                   </div>
                 </div>
-                <div className="col-2 mb-2 p-3">
+                <div className="col-lg-2 mb-2 p-3">
                   <button type="submit" onClick={onSubmit}>
                     Apply Filter
                   </button>

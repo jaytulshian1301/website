@@ -16,11 +16,11 @@ code {
     monospace;
 }
 
-light {
+.light {
   font-weight: 400;
 }
 
-transparent {
+.transparent {
   color: rgb(128, 128, 128);
 }
 
@@ -62,5 +62,11 @@ input, form button {
 .go-back{
   background-color: transparent;
   border: 2px solid grey;
+  border-radius: 5px;
+}
+
+.twitter{
+  color: white!important;
+  border: 2px solid white;
   border-radius: 5px;
 }
